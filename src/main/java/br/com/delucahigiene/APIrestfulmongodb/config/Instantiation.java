@@ -4,10 +4,12 @@ import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Configuration;
 
 import br.com.delucahigiene.APIrestfulmongodb.domain.User;
 import br.com.delucahigiene.APIrestfulmongodb.repository.UserRepository;
 
+@Configuration
 public class Instantiation implements CommandLineRunner {
 	
 	@Autowired
