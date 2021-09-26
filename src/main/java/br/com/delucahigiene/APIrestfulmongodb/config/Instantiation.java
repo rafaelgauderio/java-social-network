@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import br.com.delucahigiene.APIrestfulmongodb.domain.Post;
 import br.com.delucahigiene.APIrestfulmongodb.domain.User;
+import br.com.delucahigiene.APIrestfulmongodb.dto.AuthorDTO;
 import br.com.delucahigiene.APIrestfulmongodb.repository.PostRepository;
 import br.com.delucahigiene.APIrestfulmongodb.repository.UserRepository;
 
@@ -37,11 +38,13 @@ public class Instantiation implements CommandLineRunner {
 		User alex = new User(null, "Alex Pereira", "alex@gmail.com");
 		User robert = new User(null, "Robert Grey", "bob@gmail.com");
 		
-		Post post1 = new Post(null,sdf.parse("21/08/2021"), "Bora ir pra praia","Vamos viajar para Miami, abraços.",maria);
-		Post post2 = new Post(null,sdf.parse("25/03/2021"),"Bem vindo a Foz.","Hoje vai ser bom o passeio.",maria);
-		
-		
 		userRepository.saveAll(Arrays.asList(rafael,maria,alex,robert));
+		
+		Post post1 = new Post(null,sdf.parse("21/08/2021"), "Bora ir pra praia","Vamos viajar para Miami, abraços.",new AuthorDTO(maria));
+		Post post2 = new Post(null,sdf.parse("25/03/2021"),"Bem vindo a Foz.","Hoje vai ser bom o passeio.",new AuthorDTO(maria));
+		
+		
+		
 		postRepository.saveAll(Arrays.asList(post1,post2));
 		
 		
